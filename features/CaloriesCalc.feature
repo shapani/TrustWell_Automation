@@ -1,44 +1,47 @@
 Feature: Calories Calculation functionality
   Background:
     Given I navigate to homepage
+
+  @Calories @NewCalories @TC_CALC_01 @Regression
+  Scenario Outline: verify calories calories calculation with positive values
     When I enter username as "<userName>"
     And I enter password as "<password>"
     And I click on Continue button
+    When I click on Add Nutrient button on Home page
+    And I enter "Carbs" value as "20.0"
+    And I click on Add Nutrient button on Home page
+    And I enter "Fat" value as "2.1"
+    And I click on Add Nutrient button on Home page
+    When I enter "Alcohol" value as "1.75"
+    And I click on Add Nutrient button on Home page
+    When I enter "Sugar Alcohol" value as "3"
+    Then I verify the Total Calories Values based on the formula
 
-  @Calories
-  Scenario Outline: Calculate calories with positive values
-    When I validate the page title
-    When I enter username as "<userName>"
-    And I enter password as "<password>"
-    And I click on Continue button
-    Then I verify the user has logged in successfully
-
-    Examples:
+   Examples:
       | userName | password |
       | testUser | Test1234 |
 
-
-  @Login
-  Scenario Outline: Validate login failure with valid username and invalid password
-    When I validate the page title
-    When I enter username as "<userName2>"
-    And I enter password as "<password2>"
+   @Calories @UpdateCalories @TC_CALC_02 @Regression
+   Scenario Outline: Verify the calories values after modifying nutrient value
+    When I enter username as "<userName>"
+    And I enter password as "<password>"
     And I click on Continue button
-    Then I verify invalid login error message is displayed
+    And I click on Add Nutrient button on Home page
+    And I enter "Carbs" value as "0.0"
+    And I click on Add Nutrient button on Home page
+    And I enter "Fat" value as "20"
+    And I click on Add Nutrient button on Home page
+    And I enter "Alcohol" value as "3"
+    And I click on Add Nutrient button on Home page
+    And I enter "Sugar Alcohol" value as "-4"
+    And I update the "Sugar Alcohol" value as "4"
+    And I enter "Fat" value as "0"
+    Then I verify the Total Calories Values based on the formula
 
-    Examples:
-      | userName2 | password2 |
-      | testUser | User12345 |
-      | testUser ||
+   Examples:
+      | userName | password |
+      | testUser | Test1234 |
 
-  @Login
-  Scenario Outline: Validate login failure with invalid username and invalid password
-    When I validate the page title
-    When I enter username as "<userName3>"
-    And I enter password as "<password3>"
-    And I click on Continue button
-    Then I verify invalid login attempt message is displayed
-
-    Examples:
-      | userName3 | password3 |
-      | testUser1 | User12345 |
+#
+#  @Calories
+#  Scenario: Edit the existing Nutrients to update the calories value

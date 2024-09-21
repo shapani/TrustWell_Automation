@@ -2,7 +2,7 @@ Feature: Login functionality
   Background:
     Given I navigate to homepage
 
-  @Login
+  @Login @Regression
   Scenario Outline: Validate successful login
     When I validate the page title
     When I enter username as "<userName>"
@@ -14,8 +14,7 @@ Feature: Login functionality
       | userName | password |
       | testUser | Test1234 |
 
-
-  @Login
+  @Login @Regression
   Scenario Outline: Validate login failure with valid username and invalid password
     When I validate the page title
     When I enter username as "<userName2>"

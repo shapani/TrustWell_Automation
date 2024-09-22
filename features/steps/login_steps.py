@@ -3,7 +3,6 @@ from behave import *
 from selenium.webdriver.common.by import By
 from features.pageobjects.login_page import LoginPageObjects
 
-
 @given(u'I navigate to homepage')
 def step_impl(context):
     title = context.driver.title

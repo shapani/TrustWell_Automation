@@ -1,9 +1,9 @@
-Feature: Login functionality
+Feature: 01_Login functionality
   Background:
     Given I navigate to homepage
 
-  @Login @Regression
-  Scenario Outline: Validate successful login
+  @Login @Regression @TC_LOGIN_01
+  Scenario Outline: 01_Validate successful login
     When I validate the page title
     When I enter username as "<userName>"
     And I enter password as "<password>"
@@ -14,8 +14,8 @@ Feature: Login functionality
       | userName | password |
       | testUser | Test1234 |
 
-  @Login @Regression
-  Scenario Outline: Validate login failure with valid username and invalid password
+  @Login @Regression @TC_LOGIN_02
+  Scenario Outline: 02_Validate login failure with valid username and invalid password
     When I validate the page title
     When I enter username as "<userName2>"
     And I enter password as "<password2>"
@@ -27,8 +27,8 @@ Feature: Login functionality
       | testUser | User12345 |
       | testUser ||
 
-  @Login
-  Scenario Outline: Validate login failure with invalid username and invalid password
+  @Login @Regression @TC_LOGIN_03
+  Scenario Outline: 03_Validate login failure with invalid username and invalid password
     When I validate the page title
     When I enter username as "<userName3>"
     And I enter password as "<password3>"

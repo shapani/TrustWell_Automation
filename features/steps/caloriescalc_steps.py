@@ -44,7 +44,7 @@ def calculate_calories(context, rows, total_calories):
                 sugarAlcoholValue = float(nutrient_value)
             else:
                 print(f"Invalid or blank Nutrient name")
-                #assert False, "Invalid/blank Nutrient name."
+                assert False, "Invalid/blank Nutrient name."
         except ValueError:
             print(f"Could not convert {nutrient_value.text} to int.")
             assert False, "Invalid/blank Nutrient value."

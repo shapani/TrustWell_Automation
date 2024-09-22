@@ -15,6 +15,15 @@ This test automation framework has been designed using below technologies:
 5. Selenium
 6. Webdriver Manager
 7. Editor - Pycharm or any other compatible editors
+8. GitHub  
+
+**Project Remote Repository:**
+
+   **URL**: https://github.com/shapani/TrustWell_Automation/tree/main
+
+   **Clone URI**: https://github.com/shapani/TrustWell_Automation.git 
+
+   **Branch**: Main
 
 **How to run the testcases:**
 Open the terminal and run the below command from the project root directory:
@@ -22,11 +31,16 @@ Open the terminal and run the below command from the project root directory:
 1. To run all the feature files (testcases) from feature directory: 
    behave -f allure_behave.formatter:AllureFormatter -o allure-results/ features 
 2. To run the specific tag (example: @login, @Calories):
-   behave -f allure_behave.formatter:AllureFormatter -o allure-results/ features --tags=<Login>        
+   behave -f allure_behave.formatter:AllureFormatter -o allure-results/ features --tags=@Regression
+   or 
+   behave -f allure_behave.formatter:AllureFormatter -o allure-results/ features --tags=@@TC_LOGIN_02
 
 
 **How to view the test automation execution report:**
+
 After executing the above steps to run the testcases, the *.json file should be created in "allure-report" directory.
+
 Run the below command in same terminal: 
+
    allure serve allure-results
 

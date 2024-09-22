@@ -1,9 +1,9 @@
-Feature: Calories Calculation functionality
+Feature: 02_Calories Calculation functionality
   Background:
     Given I navigate to homepage
 
   @Calories @NewCalories @TC_CALC_01 @Regression
-  Scenario Outline: Calories: Verify calories calories calculation with positive values.
+  Scenario Outline: 01_Calories: Verify calories calories calculation with positive values.
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button
@@ -26,7 +26,7 @@ Feature: Calories Calculation functionality
       | testUser | Test1234 | 20.0       | 4        | 1            | 12              |
 
    @Calories @UpdateCalories @TC_CALC_02 @Regression
-   Scenario Outline: Calories: Verify the calories values after modifying the nutrient value.
+   Scenario Outline: 02_Calories: Verify the calories values after modifying the nutrient value.
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button
@@ -59,7 +59,7 @@ Feature: Calories Calculation functionality
       | testUser | Test1234 | 0.0           | -2.2        | 1.07             | Random             |  12           |   5.70     | 0.13            |
 
 @Calories @deleteCalories @TC_CALC_03 @Regression
-   Scenario Outline: Calories: Verify the calories values after deleting the nutrient value.
+   Scenario Outline: 03_Calories: Verify the calories values after deleting the nutrient value.
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button
@@ -78,13 +78,13 @@ Feature: Calories Calculation functionality
       | testUser | Test1234 | 2.5   |0.00030000000000000000777777777777777 |
 
   @Calories @noUpdates @TC_CALC_04 @Regression
-   Scenario Outline: Calories: Verify user is able to close the Nutrient add dialog with Close button..
+   Scenario Outline: 04_Calories: Verify user is able to close the Nutrient add dialog with Close button..
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button
     And I click on Add Nutrient button on Home page
-    And I enter "Carbs" value as "<Carbs>"
-    And I verify "Carbs" got added with value "<Carbs>" on Nutrients Dashboard
+    And I enter "Carbs" value as "<orgCarbs>"
+    And I verify "Carbs" got added with value "<orgCarbs>" on Nutrients Dashboard
     And I click on Add Nutrient button on Home page
     And I update the "Carbs" value as "<newCarbs>"
     And I click on Close button to cancel the Nutrient value updates

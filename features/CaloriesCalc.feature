@@ -3,7 +3,7 @@ Feature: Calories Calculation functionality
     Given I navigate to homepage
 
   @Calories @NewCalories @TC_CALC_01 @Regression
-  Scenario Outline: verify calories calories calculation with positive values.
+  Scenario Outline: Calories: Verify calories calories calculation with positive values.
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button
@@ -26,7 +26,7 @@ Feature: Calories Calculation functionality
       | testUser | Test1234 | 20.0       | 4        | 1            | 12              |
 
    @Calories @UpdateCalories @TC_CALC_02 @Regression
-   Scenario Outline: Verify the calories values after modifying the nutrient value.
+   Scenario Outline: Calories: Verify the calories values after modifying the nutrient value.
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button
@@ -59,7 +59,7 @@ Feature: Calories Calculation functionality
       | testUser | Test1234 | 0.0           | -2.2        | 1.07             | Random             |  12           |   5.70     | 0.13            |
 
 @Calories @deleteCalories @TC_CALC_03 @Regression
-   Scenario Outline: Verify the calories values after deleting the nutrient value.
+   Scenario Outline: Calories: Verify the calories values after deleting the nutrient value.
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button
@@ -78,7 +78,7 @@ Feature: Calories Calculation functionality
       | testUser | Test1234 | 2.5   |0.00030000000000000000777777777777777 |
 
   @Calories @noUpdates @TC_CALC_04 @Regression
-   Scenario Outline: Verify user is able to close the Nutrient add dialog with Close button..
+   Scenario Outline: Calories: Verify user is able to close the Nutrient add dialog with Close button..
     When I enter username as "<userName>"
     And I enter password as "<passWord>"
     And I click on Continue button

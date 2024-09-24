@@ -18,19 +18,19 @@ def step_impl(context):
 def step_impl(context, userName):
     context.driver.find_element(By.XPATH, LoginPageObjects.USERNAME_FIELD).send_keys(userName)
     print("Username has been entered successfully")
-    time.sleep(3)
+    time.sleep(1)
 
 @when(u'I enter password as "{passWord}"')
 def step_impl(context, passWord):
     context.driver.find_element(By.XPATH, LoginPageObjects.PASSWORD_FIELD).send_keys(passWord)
     print("Password has been entered successfully")
-    time.sleep(3)
+    time.sleep(1)
 
 @when(u'I click on Continue button')
 def step_impl(context):
     context.driver.find_element(By.ID, LoginPageObjects.CONTINUE_BTN).click()
     print("Continue button is clicked successfully")
-    time.sleep(5)
+    time.sleep(3)
 
 @then(u'I verify the user has logged in successfully')
 def step_impl(context):
@@ -49,7 +49,7 @@ def step_impl(context):
 @when(u'I enter password as ""')
 def step_impl(context):
     context.driver.find_element(By.XPATH, LoginPageObjects.PASSWORD_FIELD).send_keys("")
-    time.sleep(3)
+    time.sleep(2)
 
 @then(u'I verify invalid login attempt message is displayed')
 def step_impl(context):

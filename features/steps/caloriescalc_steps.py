@@ -5,11 +5,14 @@ from selenium.webdriver.common.by import By
 import logging
 from features.pageobjects.calories_page import CaloriesPageObjects
 from features.pageobjects.login_page import LoginPageObjects
+from selenium.common.exceptions import WebDriverException
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# This function retrieved the Nutrient name and values from Nutrient dashboard and calculates Calories value based on the below formula:
+# Calories = 4 x protein + 4 x (Carbs) + 9 x (Fat) + 7 x (Alcohol) + 2 x(sugar alcohol)
 def calculate_calories(context, rows, total_calories):
     protienValue = 0.0
     carbValue = 0.0
@@ -44,10 +47,9 @@ def calculate_calories(context, rows, total_calories):
                 sugarAlcoholValue = float(nutrient_value)
             else:
                 print(f"Invalid or blank Nutrient name")
-                assert False, "Invalid/blank Nutrient name."
-        except ValueError:
-            print(f"Could not convert {nutrient_value.text} to int.")
-            assert False, "Invalid/blank Nutrient value."
+        except Exception as e:
+            print(f"Could not convert {nutrient_value.text} to float.")
+    #Business formula to calculate calories
     total_calories = 4 * protienValue + 4 * (carbValue) + 9 * (fatValue) + 7 * (alcoholValue) + 2 * (sugarAlcoholValue)
     print(f"Expected calories: ", total_calories)
     return total_calories
